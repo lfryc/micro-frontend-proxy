@@ -263,6 +263,94 @@
         }
       }
     },
+    "react-frontend": {
+      "root": "",
+      "sourceRoot": "react-frontend",
+      "projectType": "application",
+      "prefix": "react",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/react-frontend",
+            "index": "react-frontend/index.html",
+            "main": "react-frontend/main.ts",
+            "polyfills": "react-frontend/polyfills.ts",
+            "tsConfig": "react-frontend/tsconfig.app.json",
+            "styles": [
+              "react-frontend/styles.css"
+            ],
+            "scripts": [
+              {
+                "input": "node_modules/document-register-element/build/document-register-element.js"
+              }
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "react-frontend/environments/environment.ts",
+                  "with": "react-frontend/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "react-frontend:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "react-frontend:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "react-frontend:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "react-frontend/test.ts",
+            "polyfills": "react-frontend/polyfills.ts",
+            "tsConfig": "react-frontend/tsconfig.spec.json",
+            "karmaConfig": "react-frontend/karma.conf.js",
+            "styles": [
+              "react-frontend/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "react-frontend/tsconfig.app.json",
+              "react-frontend/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
     "shared-e2e": {
       "root": "e2e/",
       "projectType": "application",

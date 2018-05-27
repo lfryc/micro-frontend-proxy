@@ -5,6 +5,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   template: `
     <h3><a href="http://localhost:4200">Angular</a></h3>
     <h3><a href="http://localhost:4201">Vue</a></h3>
+    <h3><a href="http://localhost:4202">React</a></h3>
   `,
   styles: [`
       :host {
