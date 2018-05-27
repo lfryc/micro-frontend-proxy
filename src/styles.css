@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+.container {
+  display: grid;
+
+  grid-template-areas: "topbar topbar" "sidebar main";
+
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: auto 1fr;
+  grid-gap: 10px;
+
+  height: 100vh;
+}
